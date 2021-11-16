@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Início Header */
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-spmed{
+    height: 117px;
+    width: 185px;
+    margin-left: 85px;
+    margin-top: 25px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    width: 100%;
+    background-color: #81DF71;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    text-transform: none;
+    width: 303px;
+    height: 28px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    margin-right: 137px;
+}
+    a{
+    text-decoration:none;
+    color: black;
+}
+/* Fim Header */
+
+/* Início Main */
+main{
+    background-repeat: no-repeat;
+}
+
+.fundo{
+    background-image: url("./assets/undraw_medicine_b1ol\ 1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background{
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.quadro{
+    align-items: center;
+    border-style: inset;
+    border-color: black;
+    border-width: 3px;
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    height: 700px;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    justify-content: center;
+    margin-bottom: 110px;
+}
+
+.logo-saopaulomed{
+        height: 117px;
+        width: 185px;
+}
+
+.spanquadro{
+    margin-right: 115px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px ;
+}
+
+.spansenha{
+    margin-right: 120px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px ;
+}
+
+.botoesQuadro{
+    justify-content: space-between;
+    display: flex;
+    width: 437px;
+    margin-top: 75px;
+}
+
+.btn-login{
+    background-color: #81DF71;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+    width: 150px;
+    height: 50px;
+}
+
+.inputs{
+    width: 437px;
+    height: 43px;
+}
+
+.inputs-login{
+    display: flex;
+    flex-direction: column;
+}
+/* Fim Main */
+
+/* Início Footer */
+.logo-footer{
+    height: 100px;
+    width: 165px;
+    margin-left: 85px;
+    margin-top: 25px;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+    width: 100%;
+    background-color: #81DF71;
+}
+/* Fim Footer */
