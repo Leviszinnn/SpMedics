@@ -17,5 +17,5 @@ GO
 SELECT * FROM Consulta WHERE Id_Clientes = 3
 GO
 
-Select* from Usuario
+Select* from Clientes
 go
