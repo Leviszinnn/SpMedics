@@ -9,6 +9,20 @@ GO
 SELECT Nome_Cliente, data_Nasc, tel_Paciente, RG_Paciente, CPF_Paciente, End_Paciente FROM Clientes
 GO
 
+
+-- Seleciona todos os tipos de usuários
+SELECT * FROM TipoUsuario
+GO
+
+-- Seleciona todos os usuários
+SELECT * FROM Usuario
+GO
+
+-- Seleciona todos os administradores
+SELECT * FROM Administrador
+GO
+
+
 -- Seleciona Todas as Consultas
 SELECT * FROM Consulta
 GO
