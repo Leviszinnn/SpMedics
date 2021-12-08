@@ -18,5 +18,11 @@ namespace senai_SPmedicals_webapi.Repositories
         {
             return ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
+
+        public void Cadastrar(Usuario cadastrar)
+        {
+            ctx.Usuarios.Add(cadastrar);
+            ctx.SaveChanges();
+        }
     }
 }

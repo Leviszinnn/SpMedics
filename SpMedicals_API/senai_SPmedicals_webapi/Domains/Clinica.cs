@@ -16,8 +16,8 @@ namespace senai_SPmedicals_webapi.Domains
         public byte? AdminId { get; set; }
         public string EnderecoClinica { get; set; }
         public string RazaoSocial { get; set; }
-        public string HorarioAbrir { get; set; }
-        public string HorarioFechar { get; set; }
+        public TimeSpan? HorarioAbrir { get; set; }
+        public TimeSpan? HorarioFechar { get; set; }
 
         public virtual Administrador Admin { get; set; }
         public virtual ICollection<Medico> Medicos { get; set; }

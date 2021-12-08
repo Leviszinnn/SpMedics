@@ -15,7 +15,7 @@ namespace senai_SPmedicals_webapi.Domains
         public byte IdClientes { get; set; }
         public byte? UsuarioId { get; set; }
         public string NomeCliente { get; set; }
-        public string DataNasc { get; set; }
+        public DateTime? DataNasc { get; set; }
         public string TelPaciente { get; set; }
         public string RgPaciente { get; set; }
         public string CpfPaciente { get; set; }

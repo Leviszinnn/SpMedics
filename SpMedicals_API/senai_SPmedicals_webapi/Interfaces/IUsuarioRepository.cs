@@ -10,5 +10,7 @@ namespace senai_SPmedicals_webapi.Interfaces
     interface IUsuarioRepository
     {
         Usuario Login(string email, string senha);
+
+        void Cadastrar(Usuario cadastrar);
     }
 }

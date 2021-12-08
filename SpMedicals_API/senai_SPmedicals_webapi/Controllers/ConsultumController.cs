@@ -36,44 +36,67 @@ namespace senai_SPmedicals_webapi.Controllers
                 return BadRequest(erro);
             }
         }
-
-        //[HttpGet("listar")]
-        //public IActionResult ListConsultas()
-        //{
-        //    try
-        //    {
-        //        List<Consultum> consulta = _consultumRepository.ListConsultas();
-        //        return Ok(consulta);
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        return BadRequest(erro);
-        //    }
-        //}
-
-        [Authorize(Roles = "1")]
-        [HttpPost("cadastro")]
-        public IActionResult cadastrar(Consultum cons)
+        [HttpGet("BuscarId")]
+        public IActionResult BuscarId(int id)
         {
             try
             {
-                cons.IdClientes = Convert.ToByte(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                return Ok(_consultumRepository.buscarporId(id));
+            }
+            catch (Exception erro)
+            {
 
+                return BadRequest(erro);
+            }
+        }
 
-                _consultumRepository.Cadastrar(cons);
+        [Authorize(Roles = "1")]
+        [HttpPost("cadastro")]
+        public IActionResult cadastrar(Consultum novaConsulta)
+        {
+            try
+            {
+                _consultumRepository.Cadastrar(novaConsulta);
 
                 return StatusCode(201);
 
             }
-            catch (Exception error)
+            catch (Exception ex)
             {
 
-                return BadRequest(new
-                {
-                    mensagem = "Não é possivel cadastrar uma consulta se você não estiver logado, logue e tente novamente",
-                    error
-                });
+                return BadRequest(ex);
             }
         }
+
+        [Authorize(Roles = "1")]
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Consultum ConsultaAtt)
+        {
+            try
+            {
+                _consultumRepository.Atualizar(id, ConsultaAtt);
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [Authorize(Roles = "1")]
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int IdConsulta)
+        {
+            try
+            {
+                _consultumRepository.Deletar(IdConsulta);
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
     }
 }

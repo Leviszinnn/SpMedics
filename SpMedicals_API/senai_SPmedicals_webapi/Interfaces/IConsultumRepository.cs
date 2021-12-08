@@ -15,5 +15,7 @@ namespace senai_SPmedicals_webapi.Interfaces
         void Deletar(int IdConsulta);
 
         Consultum buscarporId(int IdConsulta);
+
+        void Atualizar(int id, Consultum ConsultaAtt);
     }
 }
