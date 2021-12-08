@@ -16,7 +16,7 @@ export default class listarMED extends Component {
         try {
             const token = await AsyncStorage.getItem('token');
 
-            const resposta = await api.get('/Consultum/MyConsultas', {
+            const resposta = await api.get('/Consultum/listar', {
                 headers: {
                     Authorization: 'Bearer' + token,
                 },
