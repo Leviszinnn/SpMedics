@@ -1,4 +1,5 @@
-﻿using senai_SPmedicals_webapi.Domains;
+﻿using senai_SPmedicals_webapi.Context;
+using senai_SPmedicals_webapi.Domains;
 using senai_SPmedicals_webapi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,19 +10,23 @@ namespace senai_SPmedicals_webapi.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
+        SpmedicalsContext ctx = new SpmedicalsContext();
         public Cliente buscarporId(int IdPaciente)
         {
-                return ctx.Cliente
-                    .Select(u => new Consultum()
+                return ctx.Clientes
+                    .Select(u => new Cliente()
                     {
-                        IdConsulta = u.IdConsulta,
-                        IdMedico = u.IdMedico,
                         IdClientes = u.IdClientes,
-                        DataConsulta = u.DataConsulta,
-                        DescConsulta = u.DescConsulta,
-                        IdSituacao = u.IdSituacao
+                        UsuarioId = u.UsuarioId,
+                        NomeCliente = u.NomeCliente,
+                        DataNasc = u.DataNasc,
+                        TelPaciente = u.TelPaciente,
+                        RgPaciente = u.RgPaciente,
+                        CpfPaciente = u.CpfPaciente,
+                        EndPaciente = u.EndPaciente,
+                        Consulta = u.Consulta
                     })
-                    .FirstOrDefault(u => u.IdConsulta == IdConsulta);
+                    .FirstOrDefault(u => u.IdClientes == IdPaciente);
         }
     }
 }

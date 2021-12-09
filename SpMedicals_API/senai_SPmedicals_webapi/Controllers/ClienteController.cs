@@ -19,5 +19,20 @@ namespace senai_SPmedicals_webapi.Controllers
         public ClienteController()
         {
             _ClienteRepository = new ClienteRepository();
+        }
+
+        [HttpGet("BuscarId")]
+        public IActionResult BuscarId(int id)
+        {
+            try
+            {
+                return Ok(_ClienteRepository.buscarporId(id));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
     }
 }
