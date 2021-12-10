@@ -9,5 +9,7 @@ namespace senai_SPmedicals_webapi.Interfaces
     interface IClienteRepository
     {
         Cliente buscarporId(int IdPaciente);
+
+        Cliente buscarUsuarioLog(int IdUsuario);
     }
 }

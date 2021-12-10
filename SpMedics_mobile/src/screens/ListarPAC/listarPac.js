@@ -16,7 +16,7 @@ export default class listarPAC extends Component {
         try {
             const token = await AsyncStorage.getItem('token');
 
-            const resposta = await api.get('/Consultum/MyConsultas/', {
+            const resposta = await api.get('/Cliente/BuscarId', {
                 headers: {
                     Authorization: 'Bearer' + token,
                 },
@@ -38,7 +38,7 @@ export default class listarPAC extends Component {
     render() {
         return(
             <View style={styles.main}>
-                <Text style={styles.H1}>{"SpMedicals Group: Médicos"}</Text>
+                <Text style={styles.H1}>{"SpMedicals Group: Pacientes"}</Text>
                 <FlatList
                 contentContainerStyle={styles.styleFlat}
                 data={this.state.MyQueries}
@@ -57,8 +57,8 @@ export default class listarPAC extends Component {
         <View style={styles.flatItemRow}>
           <View style={styles.flatItemContainer}>
             <Text style={styles.flatItemInfo}>{"Médico: "}</Text>
-            <Text style={styles.flatItemInfo}>{"Data: "}{item.dataConsulta}</Text>
-            <Text style={styles.flatItemInfo}>{"Descrição: "}{item.descConsulta}</Text>
+            <Text style={styles.flatItemInfo}>{"Data: "}{item.consulta.Consultum.dataConsulta}</Text>
+            <Text style={styles.flatItemInfo}>{"Descrição: "}{item.consulta.Consultum.descConsulta}</Text>
           </View>
         </View>
       );

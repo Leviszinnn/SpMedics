@@ -7,7 +7,17 @@ VALUES ('Admin'), ('Cliente'), ('Médico')
 GO
 
 INSERT INTO Usuario(TipoUser_Id, Email, Senha)
-VALUES  (1, 'Admin@Admin.com', 'Admin'), (3, 'ricardo.lemos@spmedicalgroup.com.br', 'ricardo'), (3, 'roberto.possarle@spmedicalgroup.com.br', 'possarle'), (3, 'helena.souza@spmedicalgroup.com.br', 'helena'), (2,'ligia@gmail.com','ligia'), (2,'alexandre@gmail.com','alexandre'), (2,'fernando@gmail.com','fernando'), (2,'henrique@gmail.com','henrique'), (2,'joao@hotmail.com','joao'), (2,'bruno@gmail.com','bruno'), (2,'mariana@outlook.com','mariana')
+VALUES  (1, 'Admin@Admin.com', 'Admin'), 
+		(3, 'ricardo.lemos@spmedicalgroup.com.br', 'ricardo'), 
+		(3, 'roberto.possarle@spmedicalgroup.com.br', 'possarle'), 
+		(3, 'helena.souza@spmedicalgroup.com.br', 'helena'), 
+		(2,'ligia@gmail.com','ligia'), 
+		(2,'alexandre@gmail.com','alexandre'), 
+		(2,'fernando@gmail.com','fernando'), 
+		(2,'henrique@gmail.com','henrique'), 
+		(2,'joao@hotmail.com','joao'), 
+		(2,'bruno@gmail.com','bruno'), 
+		(2,'mariana@outlook.com','mariana')
 GO
 
 INSERT INTO Administrador(Usuario_Id, Nome_Admin)
@@ -29,11 +39,16 @@ VALUES (1, 'Av. Barão Limeira, 532, São Paulo, SP', 'SP Medical Group', '10:30:0
 GO
 
 INSERT INTO Especialidade(Nome_Especialidade)
-VALUES ('Acupuntura'), ('Anestesiologia'), ('Angiologia'), ('Cardiologia'), ('Cirurgia Cardiovascular'), ('Cirurgia de Mão'), ('Cirurgia do Aparelho Digestivo'), ('Cirurgia Geral'), ('Cirurgia Pediatrica'), ('Cirurgia Plastica'), ('Cirurgia Torácica'), ('Cirurgia Vascular'), ('Dermatologia'), ('Radioterapia'), ('Urologia'), ('Pediatria'), ('Psiquiatria')
+VALUES ('Acupuntura'), ('Anestesiologia'), ('Angiologia'), ('Cardiologia'), 
+	   ('Cirurgia Cardiovascular'), ('Cirurgia de Mão'), ('Cirurgia do Aparelho Digestivo'), 
+	   ('Cirurgia Geral'), ('Cirurgia Pediatrica'), ('Cirurgia Plastica'), ('Cirurgia Torácica'), 
+	   ('Cirurgia Vascular'), ('Dermatologia'), ('Radioterapia'), ('Urologia'), ('Pediatria'), ('Psiquiatria')
 GO
 
 INSERT INTO Medicos(Id_Clinica, Id_Especialidade, Id_Usuario, CRM_Medico, Nome_Medico)
-VALUES (1,2,2, '54356-SP', 'Ricardo Lemos'), (1,17,3, '53452-SP', 'Roberto Possarle'), (1,16,4, '65463-SP', 'Helena Strada')
+VALUES  (1,2,2, '54356-SP', 'Ricardo Lemos'), 
+		(1,17,3, '53452-SP', 'Roberto Possarle'), 
+		(1,16,4, '65463-SP', 'Helena Strada')
 GO
 
 INSERT INTO Situacao(descricao)
@@ -41,5 +56,11 @@ VALUES ('realizada'), ('agendada'), ('cancelada')
 GO
 
 INSERT INTO Consulta(Id_Medico, Id_Clientes, Data_Consulta, desc_Consulta, Id_Situacao)
-VALUES (3, 7, '2020-01-20',  'Dor na barriga', 1), (2, 2, '2020-01-06', 'Sonhos estranhos', 3), (2, 3, '2020-02-07', 'Vê vultos', 1), (2, 2, '2018-02-06', 'Medo de escuro', 1), (1, 4, '2019-02-07', 'Depressão', 3 ), (3, 7, '2020-03-08', 'Consulta rotineira', 2), (1, 4, '2020-03-09', 'Dor na Coluna', 2)
+VALUES  (3, 7, '2020-01-20',  'Dor na barriga', 1), 
+		(2, 2, '2020-01-06', 'Sonhos estranhos', 3), 
+		(2, 3, '2020-02-07', 'Vê vultos', 1), 
+		(2, 2, '2018-02-06', 'Medo de escuro', 1), 
+		(1, 4, '2019-02-07', 'Depressão', 3 ), 
+		(3, 7, '2020-03-08', 'Consulta rotineira', 2), 
+		(1, 4, '2020-03-09', 'Dor na Coluna', 2)
 GO

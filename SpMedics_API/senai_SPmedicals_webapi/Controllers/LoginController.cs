@@ -20,10 +20,12 @@ namespace senai_SPmedicals_webapi.Controllers
     public class LoginController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
+        private ClienteRepository client { get; set; }
 
         public LoginController()
         {
             _usuarioRepository = new UsuarioRepository();
+            client = new ClienteRepository();
         }
 
         [HttpPost]
@@ -32,6 +34,7 @@ namespace senai_SPmedicals_webapi.Controllers
             try
             {
                 Usuario usuarioBuscado = _usuarioRepository.Login(login.Email, login.Senha);
+                Cliente clientebuscado = client.buscarUsuarioLog(usuarioBuscado.UsuarioId);
 
                 if (usuarioBuscado == null)
                 {
@@ -42,7 +45,9 @@ namespace senai_SPmedicals_webapi.Controllers
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.UsuarioId.ToString()),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUserId.ToString())
+                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUserId.ToString()),
+                    new Claim("role", usuarioBuscado.TipoUserId.ToString()),
+                    new Claim("IdUser", clientebuscado.UsuarioId.ToString())
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("SPmedicals-chave-autenticacao"));

@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from '../../services/api';
 import App from '../../../App';
+import jwtDecode from 'jwt-decode';
 
 
 export default class Login extends Component {
@@ -22,11 +23,13 @@ export default class Login extends Component {
         this.state = {
             email: '',
             senha: '',
+            // login Med: 'roberto.possarle@spmedicalgroup.com.br' 'possarle'
+            // Login Pac: 'fernando@gmail.com','fernando'
         };
     }
 
     realizarLogin = async () => {
-        console.warn(this.state.email + '' + this.state.senha);
+        console.warn(this.state.email + ' ' + this.state.senha);
 
         const resposta = await api.post('/login', {
             email: this.state.email,
@@ -36,17 +39,11 @@ export default class Login extends Component {
         const token = resposta.data.token;
         await AsyncStorage.setItem('userToken', token);
 
-        if (resposta.status == 200) {
-            // if (IdUsuario == 2) {
-            //     this.props.navigation.navigate('listarPac');
-            // }
-            // if (IdUsuario == 3) {
-            //     this.props.navigation.navigate('listarMED')
-            // }
-            this.props.navigation.navigate('listarPAC');
+        if ((resposta.status == 200) && (jwtDecode(token).role === "2")) {
+                this.props.navigation.navigate('listarPAC');
+        }else if ((resposta.status == 200) && (jwtDecode(token).role === "3")) {
+                this.props.navigation.navigate('listarMED');
         }
-
-
         console.warn(token);
         
     };
