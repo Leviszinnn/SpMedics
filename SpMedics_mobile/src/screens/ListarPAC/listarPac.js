@@ -14,12 +14,15 @@ export default class listarPAC extends Component {
 
     SearchMyQueries = async () => {
         try {
-            const token = await AsyncStorage.getItem('token');
+            const token = await AsyncStorage.getItem('userToken');
 
-            const resposta = await api.get('/Cliente/BuscarId', {
+            // console.warn('token')
+            // console.warn(token)
+
+            const resposta = await api.get('/Consultum/minhas', {
                 headers: {
-                    Authorization: 'Bearer' + token,
-                },
+                    Authorization: 'Bearer ' + token
+                }
             });
 
             if (resposta.status === 200) {
@@ -57,8 +60,9 @@ export default class listarPAC extends Component {
         <View style={styles.flatItemRow}>
           <View style={styles.flatItemContainer}>
             <Text style={styles.flatItemInfo}>{"Médico: "}</Text>
-            <Text style={styles.flatItemInfo}>{"Data: "}{item.consulta.Consultum.dataConsulta}</Text>
-            <Text style={styles.flatItemInfo}>{"Descrição: "}{item.consulta.Consultum.descConsulta}</Text>
+            <Text style={styles.flatItemInfo}>{"Data: " + item.dataConsulta}</Text>
+            <Text style={styles.flatItemInfo}>{"Descrição: " + item.descConsulta}</Text>
+            <Text style={styles.flatItemInfo}>{"Situação: "}</Text>
           </View>
         </View>
       );

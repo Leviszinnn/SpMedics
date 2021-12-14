@@ -10,6 +10,8 @@ namespace senai_SPmedicals_webapi.Interfaces
     {
         List<Consultum> Listar();
 
+        List<Consultum> ListarMinhas(int IdUsuario);
+
         void Cadastrar(Consultum cadastrar);
 
         void Deletar(int IdConsulta);

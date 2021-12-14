@@ -28,23 +28,5 @@ namespace senai_SPmedicals_webapi.Repositories
                     })
                     .FirstOrDefault(u => u.IdClientes == IdPaciente);
         }
-
-        public Cliente buscarUsuarioLog(int IdUsuario)
-        {
-            return ctx.Clientes
-                .Select(u => new Cliente()
-                {
-                    IdClientes = u.IdClientes,
-                    UsuarioId = u.UsuarioId,
-                    NomeCliente = u.NomeCliente,
-                    DataNasc = u.DataNasc,
-                    TelPaciente = u.TelPaciente,
-                    RgPaciente = u.RgPaciente,
-                    CpfPaciente = u.CpfPaciente,
-                    EndPaciente = u.EndPaciente,
-                    Consulta = u.Consulta
-                })
-                .FirstOrDefault(u => u.UsuarioId == IdUsuario);
-        }
     }
 }

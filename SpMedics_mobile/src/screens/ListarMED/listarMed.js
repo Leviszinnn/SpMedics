@@ -14,11 +14,11 @@ export default class listarMED extends Component {
 
     SearchMyQueries = async () => {
         try {
-            const token = await AsyncStorage.getItem('token');
+            const token = await AsyncStorage.getItem('userToken');
 
-            const resposta = await api.get('/Medico/BuscarId?id=1', {
+            const resposta = await api.get('/Consultum/minhas', {
                 headers: {
-                    Authorization: 'Bearer' + token,
+                    Authorization: 'Bearer ' + token,
                 },
             });
 
@@ -56,9 +56,10 @@ export default class listarMED extends Component {
     
         <View style={styles.flatItemRow}>
           <View style={styles.flatItemContainer}>
-            <Text style={styles.flatItemInfo}>{"Paciente: " + item.idClientesNavigation.nomeCliente}</Text>
+            <Text style={styles.flatItemInfo}>{"Paciente: "}</Text>
             <Text style={styles.flatItemInfo}>{"Data: " + item.dataConsulta}</Text>
             <Text style={styles.flatItemInfo}>{"Descrição: " + item.descConsulta}</Text>
+            <Text style={styles.flatItemInfo}>{"Situação: " }</Text>
           </View>
         </View>
       );

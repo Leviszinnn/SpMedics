@@ -98,5 +98,23 @@ namespace senai_SPmedicals_webapi.Controllers
             }
         }
 
+        [HttpGet("minhas")]
+        public IActionResult minhasCons()
+        {
+            try
+            {
+                int IdUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                return Ok(_consultumRepository.ListarMinhas(IdUsuario));                    
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Não é possível mostrar as presenças se o usuário não estiver logado!",
+                    erro = error
+                }) ; 
+            }
+        }
+
     }
 }

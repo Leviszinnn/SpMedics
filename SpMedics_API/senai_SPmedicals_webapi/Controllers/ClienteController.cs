@@ -34,19 +34,5 @@ namespace senai_SPmedicals_webapi.Controllers
                 return BadRequest(erro);
             }
         }
-
-        [HttpGet("BuscarId")]
-        public IActionResult BuscarUsuarioLog(int id)
-        {
-            try
-            {
-                return Ok(_ClienteRepository.buscarUsuarioLog(id));
-            }
-            catch (Exception erro)
-            {
-
-                return BadRequest(erro);
-            }
-        }
     }
 }

@@ -10,7 +10,6 @@ import {StatusBar, StyleSheet} from 'react-native';
 import Login from './src/screens/login/login'
 import listarMED from './src/screens/ListarMED/listarMed';
 import listarPAC from './src/screens/ListarPAC/listarPac';
-import Debug from './src/screens/debugAdm/Debug';
 
 const AuthStack = createStackNavigator();
 

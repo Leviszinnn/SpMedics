@@ -22,7 +22,7 @@ export default class Login extends Component {
         super(props);
         this.state = {
             email: '',
-            senha: '',
+            senha: ''
             // login Med: 'roberto.possarle@spmedicalgroup.com.br' 'possarle'
             // Login Pac: 'fernando@gmail.com','fernando'
         };

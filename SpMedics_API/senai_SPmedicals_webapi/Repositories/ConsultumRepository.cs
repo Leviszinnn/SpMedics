@@ -79,5 +79,12 @@ namespace senai_SPmedicals_webapi.Repositories
         {
             return ctx.Consulta.ToList();
         }
+
+        public List<Consultum> ListarMinhas(int IdUsuario)
+        {
+            return ctx.Consulta 
+                   .Where(p => p.IdClientesNavigation.UsuarioId == IdUsuario || p.IdMedicoNavigation.IdUsuario == IdUsuario)
+                   .ToList();
+        }
     }
 }
